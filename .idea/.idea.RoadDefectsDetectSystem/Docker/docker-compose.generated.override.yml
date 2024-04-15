@@ -1,0 +1,41 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.9"
+services:
+  hub:
+    build:
+      context: "E:\\KPI\\4kurs\\intsys\\RiderProject\\Hub"
+      dockerfile: "Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net6.0/Hub.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "hub:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\romaad\\.nuget\\packages:/root/.nuget/packages"
+    - "E:\\KPI\\4kurs\\intsys\\RiderProject\\Hub:/app:rw"
+    - "E:\\KPI\\4kurs\\intsys\\RiderProject:/src:rw"
+    working_dir: "/app"
+  store:
+    build:
+      context: "E:\\KPI\\4kurs\\intsys\\RiderProject\\store"
+      dockerfile: "Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net6.0/Store.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "store:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\romaad\\.nuget\\packages:/root/.nuget/packages"
+    - "E:\\KPI\\4kurs\\intsys\\RiderProject\\Store:/app:rw"
+    - "E:\\KPI\\4kurs\\intsys\\RiderProject:/src:rw"
+    working_dir: "/app"
